@@ -273,6 +273,7 @@
     // Eingabefelder lesen
     var     fehler="";
     var     i=0
+    var     j=0
     var     j1o=parseFloat(document.getElementById("1o").value);
 	    document.getElementById("o1o").innerHTML = parseFloat(document.getElementById("1o").value);
 	    document.getElementById("u1o").innerHTML = parseFloat(document.getElementById("1o").value);
@@ -394,7 +395,11 @@ while (jloz<25){
     var     j6s=Math.round(j6w/jws);
 
     var     jloz=j1s+j2s+j3s+j4s+j5s+j6s;
+    var     j=j+1
 
+if (j==1000) {
+    var	    jloz=24;
+};	
 };
 
 while (jloz>25){
@@ -408,8 +413,18 @@ while (jloz>25){
     var     j6s=Math.round(j6w/jws);
 
     var     jloz=j1s+j2s+j3s+j4s+j5s+j6s;
-
+    var     j=j+1
+	
+if (j==1000) {
+    var	    jloz=24;
+};	
 };
+
+if (j==1000) {
+	var	jk=1;
+	var	fehler="Bei der Berechnung gab es einen Fehler. Bitte Seite neuladen und erneut versuchen oder junge@fbp.li kontaktieren";
+	window.alert(fehler);
+};		
 
 	    document.getElementById("ws").innerHTML = jws;
 	    document.getElementById("o1s").innerHTML = j1s;
