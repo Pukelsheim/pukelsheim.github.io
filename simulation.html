@@ -252,48 +252,52 @@
 <footer>Alle Angaben ohne Gewähr. Bei Fragen oder Anmerkungen: <a href=mailto:"info@fbp.li">info@fbp.li</a></footer>
 
 <script>
+	function load_2021() {
+    var     j1o=54018;
+    var     j2o=50844;
+    var     j3o=20026;
+    var     j4o=14127;
+    var     j5o=7370;
+    var     j6o=0;
+		
+    var     j1u=18343;
+    var     j2u=21475;
+    var     j3u=5917;
+    var     j4u=8329;
+    var     j5u=1186;
+    var     j6u=0;
+	}
+	
         function berechneSitzverteilung() {
     // Eingabefelder lesen
     var     fehler="";
     var     i=0
     var     j=0
-    var     j1o=parseFloat(document.getElementById("1o").value);
-	    document.getElementById("o1o").innerHTML = parseFloat(document.getElementById("1o").value);
-	    document.getElementById("u1o").innerHTML = parseFloat(document.getElementById("1o").value);
-    var     j2o=parseFloat(document.getElementById("2o").value);
-	    document.getElementById("o2o").innerHTML = parseFloat(document.getElementById("2o").value);
-	    document.getElementById("u2o").innerHTML = parseFloat(document.getElementById("2o").value);
-    var     j3o=parseFloat(document.getElementById("3o").value);
-	    document.getElementById("o3o").innerHTML = parseFloat(document.getElementById("3o").value);
-	    document.getElementById("u3o").innerHTML = parseFloat(document.getElementById("3o").value);
-    var     j4o=parseFloat(document.getElementById("4o").value);
-	    document.getElementById("o4o").innerHTML = parseFloat(document.getElementById("4o").value);
-	    document.getElementById("u4o").innerHTML = parseFloat(document.getElementById("4o").value);
-    var     j5o=parseFloat(document.getElementById("5o").value);
-	    document.getElementById("o5o").innerHTML = parseFloat(document.getElementById("5o").value);
-	    document.getElementById("u5o").innerHTML = parseFloat(document.getElementById("5o").value);
-    var     j6o=parseFloat(document.getElementById("6o").value);
-	    document.getElementById("o6o").innerHTML = parseFloat(document.getElementById("6o").value);
-	    document.getElementById("u6o").innerHTML = parseFloat(document.getElementById("6o").value);
+	    document.getElementById("o1o").innerHTML = j1o;
+	    document.getElementById("u1o").innerHTML = j1o;
+	    document.getElementById("o2o").innerHTML = j2o;
+	    document.getElementById("u2o").innerHTML = j2o;
+	    document.getElementById("o3o").innerHTML = j3o;
+	    document.getElementById("u3o").innerHTML = j3o;
+	    document.getElementById("o4o").innerHTML = j4o;
+	    document.getElementById("u4o").innerHTML = j4o;
+	    document.getElementById("o5o").innerHTML = j5o;
+	    document.getElementById("u5o").innerHTML = j5o;
+	    document.getElementById("o6o").innerHTML = j6o;
+	    document.getElementById("u6o").innerHTML = j6o;
 
-    var     j1u=parseFloat(document.getElementById("1u").value);
-	    document.getElementById("o1u").innerHTML = parseFloat(document.getElementById("1u").value);
-	    document.getElementById("u1u").innerHTML = parseFloat(document.getElementById("1u").value);
-    var     j2u=parseFloat(document.getElementById("2u").value);
-	    document.getElementById("o2u").innerHTML = parseFloat(document.getElementById("2u").value);
-	    document.getElementById("u2u").innerHTML = parseFloat(document.getElementById("2u").value);
-    var     j3u=parseFloat(document.getElementById("3u").value);
-	    document.getElementById("o3u").innerHTML = parseFloat(document.getElementById("3u").value);
-	    document.getElementById("u3u").innerHTML = parseFloat(document.getElementById("3u").value);
-    var     j4u=parseFloat(document.getElementById("4u").value);
-	    document.getElementById("o4u").innerHTML = parseFloat(document.getElementById("4u").value);
-	    document.getElementById("u4u").innerHTML = parseFloat(document.getElementById("4u").value);
-    var     j5u=parseFloat(document.getElementById("5u").value);
-	    document.getElementById("o5u").innerHTML = parseFloat(document.getElementById("5u").value);
-	    document.getElementById("u5u").innerHTML = parseFloat(document.getElementById("5u").value);
-    var     j6u=parseFloat(document.getElementById("6u").value);
-	    document.getElementById("o6u").innerHTML = parseFloat(document.getElementById("6u").value);
-	    document.getElementById("u6u").innerHTML = parseFloat(document.getElementById("6u").value);
+	    document.getElementById("o1u").innerHTML = j1u;
+	    document.getElementById("u1u").innerHTML = j1u;
+	    document.getElementById("o2u").innerHTML = j2u;
+	    document.getElementById("u2u").innerHTML = j2u;
+	    document.getElementById("o3u").innerHTML = j3u;
+	    document.getElementById("u3u").innerHTML = j3u;
+	    document.getElementById("o4u").innerHTML = j4u;
+	    document.getElementById("u4u").innerHTML = j4u;
+	    document.getElementById("o5u").innerHTML = j5u;
+	    document.getElementById("u5u").innerHTML = j5u;
+	    document.getElementById("o6u").innerHTML = j6u;
+	    document.getElementById("u6u").innerHTML = j6u;
 
     var     j1w=j1u/10+j1o/15;
 	    document.getElementById("o1w").innerHTML = j1w;
