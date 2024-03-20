@@ -32,10 +32,6 @@
 <button onclick="load_5()">Simulation 5 Parteien</button>
 <button onclick="load_6()">Simulation 6 Parteien</button>
 
-	<p>Berechnen:</p>
-  
-<button onclick="berechneSitzverteilung()">Berechnen</button>
-
    <h2>Oberzuteilung (Art. 55)</h2>
 
 <p>Bei der Oberzuetilung wird berechnet, wie viele Mandate eine Partei im Landtag haben wird. Dabei werden als erstes die Wählerstimmen einer Partei berechnet, indem die Stimmenanzahl durch die im Wahlkreis zu vergebenden Sitze geteilt wird. Die Summe gibt dann die Wählerstimmen. Von den Parteien, die mehr als 8% erreicht haben, wird dann die Zuteilung errechnet.</p>
@@ -266,6 +262,8 @@
     var     j4u=8329;
     var     j5u=1186;
     var     j6u=0;
+
+	berechneSitzverteiung();
 	}
 	
         function berechneSitzverteilung() {
