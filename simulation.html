@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="author" content="Raphael Ott">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doppelter Pukelsheim-Rechner</title>
+    <title>Doppelter Pukelsheim: Simulator und vergangene Ergebnisse</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="logo.png">
 </head>
 <body>
   <header>
-	<h1>Doppelter Pukelsheim: Simulator</h1>
+	<h1>Doppelter Pukelsheim: Simulator und vergangene Ergebnisse</h1>
   </header>
 
-<p>Die folgende Webseite berechnet vergangene Wahlergebnise mit dem Doppelten Pukelsheim oder simuliert neue Ergebnisse.</p>
+<p>Die folgende Webseite berechnet vergangene Wahlergebnise mit dem Doppelten Pukelsheim oder simuliert neue Ergebnisse. Bei den vergangenen Ergebnissen ist Partei 1 die FBP, gefolgt von VU, FL, DU und als Partei 5 die DPL.</p>
+<p>Hier gehts zurück zum Rechner: <a href="simulation.html">Doppelter Pukelsheim: Rechner</a></p>
 
 <button onclick="load_2021()">2021</button>
 <button onclick="load_2017()">2017</button>
@@ -23,9 +24,10 @@
 <button onclick="load_2005()">2005</button>
 <button onclick="load_2001()">2001</button>
 <button onclick="load_1997()">1997</button>
-<button onclick="load_19932()">1993.2</button>
-<button onclick="load_19931()">1993.1</button>
+<button onclick="load_19932()">1993 (Okt.)</button>
+<button onclick="load_19931()">1993 (Feb.)</button>
 	<br>
+<p>Achtung: Es kann sein, dass sich die Webseite bei der Simulation aufhängt. Dann muss der Tab geschlossen und erneut geöffnet werden.</p>
 <button onclick="load_2()">Simulation 2 Parteien</button>
 <button onclick="load_3()">Simulation 3 Parteien</button>
 <button onclick="load_4()">Simulation 4 Parteien</button>
@@ -248,25 +250,8 @@
 <footer>Alle Angaben ohne Gewähr. Bei Fragen oder Anmerkungen: <a href=mailto:"info@fbp.li">info@fbp.li</a></footer>
 
 <script>
-	function load_2021() {
-    var     j1o=54018;
-    var     j2o=50844;
-    var     j3o=20026;
-    var     j4o=14127;
-    var     j5o=7370;
-    var     j6o=0;
-		
-    var     j1u=18343;
-    var     j2u=21475;
-    var     j3u=5917;
-    var     j4u=8329;
-    var     j5u=1186;
-    var     j6u=0;
 
-	berechneSitzverteilung();
-	}
-	
-        function berechneSitzverteilung() {
+	function berechneSitzverteilung(j1o,j2o,j3o,j4o,j5o,j6o,j1u,j2u,j3u,j4u,j5u,j6u) {
     // Eingabefelder lesen
     var     fehler="";
     var     i=0
@@ -704,6 +689,258 @@ if (i==1000) {
      document.getElementById("fehler").innerHTML = fehler;
 }
 	
+
+	function load_2021() {
+    var     j1o=50844;
+    var     j2o=54018;
+    var     j3o=20026;
+    var     j4o=7370;
+    var     j5o=14127;
+    var     j6o=0;
+		
+    var     j1u=21475;
+    var     j2u=18343;
+    var     j3u=5917;
+    var     j4u=1186;
+    var     j5u=8329;
+    var     j6u=0;
+
+	berechneSitzverteilung(j1o,j2o,j3o,j4o,j5o,j6u,j1u,j2u,j3u,j4u,j5u,j6u);
+	}
+
+	function load_2017() {
+    var     j1o=47747;
+    var     j2o=48789;
+    var     j3o=18882;
+    var     j4o=26452;
+    var     j5o=0;
+    var     j6o=0;
+		
+    var     j1u=20914;
+    var     j2u=16995;
+    var     j3u=5715;
+    var     j4u=9449;
+    var     j5u=0;
+    var     j6u=0;
+
+	berechneSitzverteilung(j1o,j2o,j3o,j4o,j5o,j6u,j1u,j2u,j3u,j4u,j5u,j6u);
+	}
+
+	function load_2013() {
+    var     j1o=55233;
+    var     j2o=48586;
+    var     j3o=16058;
+    var     j4o=20748;
+    var     j5o=0;
+    var     j6o=0;
+		
+    var     j1u=22411;
+    var     j2u=16532;
+    var     j3u=5546;
+    var     j4u=8991;
+    var     j5u=0;
+    var     j6u=0;
+
+	berechneSitzverteilung(j1o,j2o,j3o,j4o,j5o,j6u,j1u,j2u,j3u,j4u,j5u,j6u);
+	}
+
+	function load_2009() {
+    var     j1o=61033;
+    var     j2o=71469;
+    var     j3o=13733;
+    var     j4o=0;
+    var     j5o=0;
+    var     j6o=0;
+		
+    var     j1u=25918;
+    var     j2u=23750;
+    var     j3u=4102;
+    var     j4u=0;
+    var     j5u=0;
+    var     j6u=0;
+
+	berechneSitzverteilung(j1o,j2o,j3o,j4o,j5o,j6u,j1u,j2u,j3u,j4u,j5u,j6u);
+	}
+
+	function load_2005() {
+    var     j1o=66389;
+    var     j2o=55372;
+    var     j3o=20319;
+    var     j4o=0;
+    var     j5o=0;
+    var     j6o=0;
+		
+    var     j1u=28156;
+    var     j2u=18790;
+    var     j3u=4954;
+    var     j4u=0;
+    var     j5u=0;
+    var     j6u=0;
+
+	berechneSitzverteilung(j1o,j2o,j3o,j4o,j5o,j6u,j1u,j2u,j3u,j4u,j5u,j6u);
+	}
+
+	function load_2001() {
+    var     j1o=65878;
+    var     j2o=57816;
+    var     j3o=13106;
+    var     j4o=0;
+    var     j5o=0;
+    var     j6o=0;
+		
+    var     j1u=26326;
+    var     j2u=18586;
+    var     j3u=3078;
+    var     j4u=0;
+    var     j5u=0;
+    var     j6u=0;
+
+	berechneSitzverteilung(j1o,j2o,j3o,j4o,j5o,j6u,j1u,j2u,j3u,j4u,j5u,j6u);
+	}
+
+	function load_1997() {
+    var     j1o=47170;
+    var     j2o=63889;
+    var     j3o=14386;
+    var     j4o=0;
+    var     j5o=0;
+    var     j6o=0;
+		
+    var     j1u=18744;
+    var     j2u=18897;
+    var     j3u=5069;
+    var     j4u=0;
+    var     j5u=0;
+    var     j6u=0;
+
+	berechneSitzverteilung(j1o,j2o,j3o,j4o,j5o,j6u,j1u,j2u,j3u,j4u,j5u,j6u);
+	}
+
+	function load_19932() {
+    var     j1o=47125;
+    var     j2o=60437;
+    var     j3o=10728;
+    var     j4o=0;
+    var     j5o=0;
+    var     j6o=0;
+		
+    var     j1u=17950;
+    var     j2u=18461;
+    var     j3u=2719;
+    var     j4u=0;
+    var     j5u=0;
+    var     j6u=0;
+
+	berechneSitzverteilung(j1o,j2o,j3o,j4o,j5o,j6u,j1u,j2u,j3u,j4u,j5u,j6u);
+	}
+
+	function load_19931() {
+    var     j1o=50992;
+    var     j2o=56511;
+    var     j3o=13187;
+    var     j4o=0;
+    var     j5o=0;
+    var     j6o=0;
+		
+    var     j1u=20217;
+    var     j2u=16706;
+    var     j3u=3537;
+    var     j4u=0;
+    var     j5u=0;
+    var     j6u=0;
+
+	berechneSitzverteilung(j1o,j2o,j3o,j4o,j5o,j6u,j1u,j2u,j3u,j4u,j5u,j6u);
+	}
+
+	function load_2() {
+    var     j1o=15*Math.floor(Math.random() * 10128);
+    var     j2o=151920-j1o;
+    var     j3o=0;
+    var     j4o=0;
+    var     j5o=0;
+    var     j6o=0;
+		
+    var     j1u=10*Math.floor(Math.random() * 5750);
+    var     j2u=57500-j1u;
+    var     j3u=0;
+    var     j4u=0;
+    var     j5u=0;
+    var     j6u=0;
+
+	berechneSitzverteilung(j1o,j2o,j3o,j4o,j5o,j6u,j1u,j2u,j3u,j4u,j5u,j6u);
+	}
+
+	function load_3() {
+    var     j1o=15*Math.floor(0.9*Math.random() * 10128);
+    var     j2o=15*Math.floor(0.9*Math.random() * (10128-j1o/15));
+    var     j3o=151920-j1o-j2o;
+    var     j4o=0;
+    var     j5o=0;
+    var     j6o=0;
+		
+    var     j1u=10*Math.floor(0.9*Math.random() * 5750);
+    var     j2u=10*Math.floor(0.9*Math.random() * (5750-j1u/10));
+    var     j3u=57500-j1u-j2u;
+    var     j4u=0;
+    var     j5u=0;
+    var     j6u=0;
+
+	berechneSitzverteilung(j1o,j2o,j3o,j4o,j5o,j6u,j1u,j2u,j3u,j4u,j5u,j6u);
+	}
+
+	function load_4() {
+    var     j1o=15*Math.floor(0.8*Math.random() * 10128);
+    var     j2o=15*Math.floor(0.8*Math.random() * (10128-j1o/15));
+    var     j3o=15*Math.floor(0.8*Math.random() * (10128-j1o/15-j2o/15));
+    var     j4o=151920-j1o-j2o-j3o;
+    var     j5o=0;
+    var     j6o=0;
+		
+    var     j1u=10*Math.floor(0.8*Math.random() * 5750);
+    var     j2u=10*Math.floor(0.8*Math.random() * (5750-j1u/10));
+    var     j3u=10*Math.floor(0.8*Math.random() * (5750-j1u/10-j2u/10));
+    var     j4u=57500-j1u-j2u-j3u;
+    var     j5u=0;
+    var     j6u=0;
+
+	berechneSitzverteilung(j1o,j2o,j3o,j4o,j5o,j6u,j1u,j2u,j3u,j4u,j5u,j6u);
+	}
+
+	function load_5() {
+    var     j1o=15*Math.floor(0.7*Math.random() * 10128);
+    var     j2o=15*Math.floor(0.7*Math.random() * (10128-j1o/15));
+    var     j3o=15*Math.floor(0.7*Math.random() * (10128-j1o/15-j2o/15));
+    var     j4o=15*Math.floor(0.7*Math.random() * (10128-j1o/15-j2o/15-j3o/15));
+    var     j5o=151920-j1o-j2o-j3o-j4o;
+    var     j6o=0;
+		
+    var     j1u=10*Math.floor(0.7*Math.random() * 5750);
+    var     j2u=10*Math.floor(0.7*Math.random() * (5750-j1u/10));
+    var     j3u=10*Math.floor(0.7*Math.random() * (5750-j1u/10-j2u/10));
+    var     j4u=10*Math.floor(0.7*Math.random() * (5750-j1u/10-j2u/10-j3u/10));
+    var     j5u=57500-j1u-j2u-j3u-j4u;
+    var     j6u=0;
+
+	berechneSitzverteilung(j1o,j2o,j3o,j4o,j5o,j6u,j1u,j2u,j3u,j4u,j5u,j6u);
+	}
+
+	function load_6() {
+    var     j1o=15*Math.floor(0.6*Math.random() * 10128);
+    var     j2o=15*Math.floor(0.6*Math.random() * (10128-j1o/15));
+    var     j3o=15*Math.floor(0.6*Math.random() * (10128-j1o/15-j2o/15));
+    var     j4o=15*Math.floor(0.6*Math.random() * (10128-j1o/15-j2o/15-j3o/15));
+    var     j5o=15*Math.floor(0.6*Math.random() * (10128-j1o/15-j2o/15-j3o/15-j4o/15));
+    var     j6o=151920-j1o-j2o-j3o-j4o-j5o;
+		
+    var     j1u=10*Math.floor(0.6*Math.random() * 5750);
+    var     j2u=10*Math.floor(0.6*Math.random() * (5750-j1u/10));
+    var     j3u=10*Math.floor(0.6*Math.random() * (5750-j1u/10-j2u/10));
+    var     j4u=10*Math.floor(0.6*Math.random() * (5750-j1u/10-j2u/10-j3u/10));
+    var     j5u=10*Math.floor(0.6*Math.random() * (5750-j1u/10-j2u/10-j3u/10-j4u/10));
+    var     j6u=57500-j1u-j2u-j3u-j4u-j5u;
+
+	berechneSitzverteilung(j1o,j2o,j3o,j4o,j5o,j6u,j1u,j2u,j3u,j4u,j5u,j6u);
+	}
     </script>
 
 </body>
