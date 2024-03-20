@@ -14,7 +14,7 @@
 	<h1>Doppelter Pukelsheim: Simulator</h1>
   </header>
 
-<p>Das folgende Programm berechnet vergangene Wahlergebnise mit dem Doppelten Pukelsheim oder simuliert neue Ergebnisse.</p>
+<p>Die folgende Webseite berechnet vergangene Wahlergebnise mit dem Doppelten Pukelsheim oder simuliert neue Ergebnisse.</p>
 
 <button onclick="load_2021()">2021</button>
 <button onclick="load_2017()">2017</button>
@@ -248,24 +248,6 @@
 <footer>Alle Angaben ohne Gewähr. Bei Fragen oder Anmerkungen: <a href=mailto:"info@fbp.li">info@fbp.li</a></footer>
 
 <script>
-	function load_2021() {
-    var     j1o=54018;
-    var     j2o=50844;
-    var     j3o=20026;
-    var     j4o=14127;
-    var     j5o=7370;
-    var     j6o=0;
-		
-    var     j1u=18343;
-    var     j2u=21475;
-    var     j3u=5917;
-    var     j4u=8329;
-    var     j5u=1186;
-    var     j6u=0;
-
-	berechneSitzverteiung();
-	}
-	
         function berechneSitzverteilung() {
     // Eingabefelder lesen
     var     fehler="";
@@ -704,6 +686,24 @@ if (i==1000) {
      document.getElementById("fehler").innerHTML = fehler;
 }
 
+	function load_2021() {
+    var     j1o=54018;
+    var     j2o=50844;
+    var     j3o=20026;
+    var     j4o=14127;
+    var     j5o=7370;
+    var     j6o=0;
+		
+    var     j1u=18343;
+    var     j2u=21475;
+    var     j3u=5917;
+    var     j4u=8329;
+    var     j5u=1186;
+    var     j6u=0;
+
+	berechneSitzverteiung();
+	}
+	
     </script>
 
 </body>
