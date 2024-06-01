@@ -9,7 +9,7 @@
 ## Dieses Skript berechnet den Gallagher-Index fuer den Doppelproporz sowie fuer den Statusquo im Falle von 5 Parteien auf Basis der Landtagswahlen 2021 mit simulierten Wahlergebnissen
 
 ## Anzahl Berechnungen
-x<-1000
+x<-250
 
 ## Auswahl von Wäherwanderung (1) oder von Zufallsgenerator (0)
 methode<-1
