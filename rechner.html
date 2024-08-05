@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Raphael Ott">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Doppelter Pukelsheim</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+<div class="container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="argumente.html" class="nav-link">Argumente</a></li>
+        <li class="nav-item"><a href="rechner.html" class="nav-link active" aria-current="page">interaktiver Rechner</a></li>
+        <li class="nav-item"><a href="simulator.html" class="nav-link">Beispiele</a></li>
+        <li class="nav-item"><a href="doks.html" class="nav-link">Weitere Dokumente</a></li>
+      </ul>
+    </header>
+  </div>
+
+<div class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold text-body-emphasis">Rechner zum Doppelten Pukelsheim</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Folgender Rechner kann für die Berechung des Ergebnis beim Anwenden des doppelten Pukelsheim verwendet werden. Dabei wird für jede Partei in beiden Wahlkreisen das ausgezählte Ergebnis eingetippt, der Rest wird vom Computer erledigt.</p>
+    </div>
+  </div>
+
+<h2>Eingabe der Parteistimmen</h2>
+<p>Hier werden die ausgezählten Stimmen eingetippt. Falls es weniger als 6 Parteien gibt, muss für die übrig gebliebenen Felder der Wert 0 zugeordnet werden.</p>
+    <div class="container px-4 py-5">
+        <h3>Oberland</h3>
+        <div><label for="1o">Partei 1:</label>
+        <input type="number" id="1o"></div>
+        <div><label for="2o">Partei 2:</label>
+        <input type="number" id="2o"></div>
+        <div><label for="3o">Partei 3:</label>
+        <input type="number" id="3o"></div>
+        <div><label for="4o">Partei 4:</label>
+        <input type="number" id="4o"></div>
+        <div><label for="5o">Partei 5:</label>
+        <input type="number" id="5o"></div>
+        <div><label for="6o">Partei 6:</label>
+        <input type="number" id="6o"></div>
+    </div>
+<p></p>
+    <div class="container px-4 py-5">
+        <h3>Unterland</h3>
+        <div><label for="1u">Partei 1:</label>
+        <input type="number" id="1u"></div>
+        <div><label for="2u">Partei 2:</label>
+        <input type="number" id="2u"></div>
+        <div><label for="3u">Partei 3:</label>
+        <input type="number" id="3u"></div>
+        <div><label for="4u">Partei 4:</label>
+        <input type="number" id="4u"></div>
+        <div><label for="5u">Partei 5:</label>
+        <input type="number" id="5u"></div>
+        <div><label for="6u">Partei 6:</label>
+        <input type="number" id="6u"></div>
+    </div>
+
+<p>
+<p>
+
+<button class="btn btn-primary btn-lg px-4 me-md-2" onclick="berechneSitzverteilung()">Berechnen</button>
+
+   </p><h2>Oberzuteilung (Art. 55)</h2>
+
+<p>Bei der Oberzuetilung wird berechnet, wie viele Mandate eine Partei im Landtag haben wird. Dabei werden als erstes die Wählerstimmen einer Partei berechnet, indem die Stimmenanzahl durch die im Wahlkreis zu vergebenden Sitze geteilt wird. Die Summe gibt dann die Wählerstimmen. Von den Parteien, die mehr als 8% erreicht haben, wird dann die Zuteilung errechnet.</p>
+
+<div>
+<table style="width:100%;">
+  <tbody><tr>
+    <th></th>
+    <th>Parteistimmen Oberland</th>
+    <th>Parteistimmen Unterland</th>
+    <th>Wählerstimmen</th>
+    <th>Wähleranteil</th>
+    <th>Mandate</th>
+  </tr>
+  <tr>
+    <th>Partei 1</th>
+    <td><div id="o1o">0</div></td>
+    <td><div id="o1u">0</div></td>
+    <td><div id="o1w">0</div></td>
+    <td><div id="o1a">0</div></td>
+    <td><div id="o1s">0</div></td>
+  </tr>
+  <tr>
+    <th>Partei 2</th>
+    <td><div id="o2o">0</div></td>
+    <td><div id="o2u">0</div></td>
+    <td><div id="o2w">0</div></td>
+    <td><div id="o2a">0</div></td>
+    <td><div id="o2s">0</div></td>
+  </tr>
+  <tr>
+    <th>Partei 3</th>
+    <td><div id="o3o">0</div></td>
+    <td><div id="o3u">0</div></td>
+    <td><div id="o3w">0</div></td>
+    <td><div id="o3a">0</div></td>
+    <td><div id="o3s">0</div></td>
+  </tr>
+  <tr>
+    <th>Partei 4</th>
+    <td><div id="o4o">0</div></td>
+    <td><div id="o4u">0</div></td>
+    <td><div id="o4w">0</div></td>
+    <td><div id="o4a">0</div></td>
+    <td><div id="o4s">0</div></td>
+  </tr>
+  <tr>
+    <th>Partei 5</th>
+    <td><div id="o5o">0</div></td>
+    <td><div id="o5u">0</div></td>
+    <td><div id="o5w">0</div></td>
+    <td><div id="o5a">0</div></td>
+    <td><div id="o5s">0</div></td>
+  </tr>
+  <tr>
+    <th>Partei 6</th>
+    <td><div id="o6o">0</div></td>
+    <td><div id="o6u">0</div></td>
+    <td><div id="o6w">0</div></td>
+    <td><div id="o6a">0</div></td>
+    <td><div id="o6s">0</div></td>
+  </tr>
+</tbody></table>
+</div>
+
+
+
+<p>Der Wahlschlüssel beträgt:</p>
+<b><div id="ws">___</div></b>
+
+  <h2>Unterzuteilung (Art. 56)</h2>
+
+<p>Bei der Unterzuteilung werden die Mandate auf die Wahlkreise so aufgeteilt, dass das Oberland 15 und das Unterland 10 Mandate erhält. Diese Zuteilung ist eindeutig.</p>
+
+<div>
+<table style="width:100%">
+  <tbody><tr>
+    <th>Oberland</th>
+    <th>Stimmen</th>
+    <th>Wählergruppen-Divisor</th>
+    <th>Mandate</th>
+    <th>Unterland</th>
+    <th>Stimmen</th>
+    <th>Wählergruppen-Divisor</th>
+    <th>Mandate</th>
+  </tr>
+  <tr>
+    <th>Partei 1</th>
+    <td><div id="u1o">0</div></td>
+    <td><div id="u1d">1</div></td>
+    <td><div id="u1mo">0</div></td>
+    <th>Partei 1</th>
+    <td><div id="u1u">0</div></td>
+    <td><div id="u1du">1</div></td>
+    <td><div id="u1mu">0</div></td>
+  </tr>
+  <tr>
+    <th>Partei 2</th>
+    <td><div id="u2o">0</div></td>
+    <td><div id="u2d">1</div></td>
+    <td><div id="u2mo">0</div></td>
+    <th>Partei 2</th>
+    <td><div id="u2u">0</div></td>
+    <td><div id="u2du">1</div></td>
+    <td><div id="u2mu">0</div></td>
+  </tr>
+  <tr>
+    <th>Partei 3</th>
+    <td><div id="u3o">0</div></td>
+    <td><div id="u3d">1</div></td>
+    <td><div id="u3mo">0</div></td>
+    <th>Partei 3</th>
+    <td><div id="u3u">0</div></td>
+    <td><div id="u3du">1</div></td>
+    <td><div id="u3mu">0</div></td>
+  </tr>
+  <tr>
+    <th>Partei 4</th>
+    <td><div id="u4o">0</div></td>
+    <td><div id="u4d">1</div></td>
+    <td><div id="u4mo">0</div></td>
+    <th>Partei 4</th>
+    <td><div id="u4u">0</div></td>
+    <td><div id="u4du">1</div></td>
+    <td><div id="u4mu">0</div></td>
+  </tr>
+  <tr>
+    <th>Partei 5</th>
+    <td><div id="u5o">0</div></td>
+    <td><div id="u5d">1</div></td>
+    <td><div id="u5mo">0</div></td>
+    <th>Partei 5</th>
+    <td><div id="u5u">0</div></td>
+    <td><div id="u5du">1</div></td>
+    <td><div id="u5mu">0</div></td>
+  </tr>
+  <tr>
+    <th>Partei 6</th>
+    <td><div id="u6o">0</div></td>
+    <td><div id="u6d">1</div></td>
+    <td><div id="u6mo">0</div></td>
+    <th>Partei 6</th>
+    <td><div id="u6u">0</div></td>
+    <td><div id="u6du">1</div></td>
+    <td><div id="u6mu">0</div></td>
+  </tr>
+</tbody></table>
+</div>
+
+<p>Der Wahlkreis-Divisor für das Oberland beträgt:</p>
+<b><div id="wdo">___</div></b>
+
+<p>Der Wahlkreis-Divisor für das Unterland beträgt:</p>
+<b><div id="wdu">___</div></b>
+
+<p></p>
+
+<h2>Endergebnis</h2>
+<p>Folgende Tabelle zeigt das Endergebnis der Mandatsverteilung:
+
+</p><div>
+<table style="width:100%">
+  <tbody><tr>
+    <th>Ergebnis</th>
+    <th>Sitze Oberland</th>
+    <th>Sitze Unterland</th>
+    <th>Gesamt</th>
+  </tr>
+  <tr>
+    <th>Partei 1</th>
+    <td><div id="e1o">0</div></td>
+    <td><div id="e1u">0</div></td>
+    <td><div id="e1">0</div></td>
+  </tr>
+  <tr>
+    <th>Partei 2</th>
+    <td><div id="e2o">0</div></td>
+    <td><div id="e2u">0</div></td>
+    <td><div id="e2">0</div></td>
+  </tr>
+  <tr>
+    <th>Partei 3</th>
+    <td><div id="e3o">0</div></td>
+    <td><div id="e3u">0</div></td>
+    <td><div id="e3">0</div></td>
+  </tr>
+  <tr>
+    <th>Partei 4</th>
+    <td><div id="e4o">0</div></td>
+    <td><div id="e4u">0</div></td>
+    <td><div id="e4">0</div></td>
+  </tr>
+  <tr>
+     <th>Partei 5</th>
+    <td><div id="e5o">0</div></td>
+    <td><div id="e5u">0</div></td>
+    <td><div id="e5">0</div></td>
+  </tr>
+  <tr>
+     <th>Partei 6</th>
+    <td><div id="e6o">0</div></td>
+    <td><div id="e6u">0</div></td>
+    <td><div id="e6">0</div></td>
+  </tr>
+</tbody></table>
+</div>
+
+<p></p>
+
+<div id="fehler"></div>
+
+<p></p>
+
+<p>Dieser Rechner wurde mit minimalen Informatik-Kenntinessen erstellt. Alle Angaben sind ohne Gewähr.</p>
+
+<script>
+        function berechneSitzverteilung() {
+    // Eingabefelder lesen
+    var     fehler="";
+    var     i=0
+    var     j=0
+    var     j1o=parseFloat(document.getElementById("1o").value);
+	    document.getElementById("o1o").innerHTML = parseFloat(document.getElementById("1o").value);
+	    document.getElementById("u1o").innerHTML = parseFloat(document.getElementById("1o").value);
+    var     j2o=parseFloat(document.getElementById("2o").value);
+	    document.getElementById("o2o").innerHTML = parseFloat(document.getElementById("2o").value);
+	    document.getElementById("u2o").innerHTML = parseFloat(document.getElementById("2o").value);
+    var     j3o=parseFloat(document.getElementById("3o").value);
+	    document.getElementById("o3o").innerHTML = parseFloat(document.getElementById("3o").value);
+	    document.getElementById("u3o").innerHTML = parseFloat(document.getElementById("3o").value);
+    var     j4o=parseFloat(document.getElementById("4o").value);
+	    document.getElementById("o4o").innerHTML = parseFloat(document.getElementById("4o").value);
+	    document.getElementById("u4o").innerHTML = parseFloat(document.getElementById("4o").value);
+    var     j5o=parseFloat(document.getElementById("5o").value);
+	    document.getElementById("o5o").innerHTML = parseFloat(document.getElementById("5o").value);
+	    document.getElementById("u5o").innerHTML = parseFloat(document.getElementById("5o").value);
+    var     j6o=parseFloat(document.getElementById("6o").value);
+	    document.getElementById("o6o").innerHTML = parseFloat(document.getElementById("6o").value);
+	    document.getElementById("u6o").innerHTML = parseFloat(document.getElementById("6o").value);
+
+    var     j1u=parseFloat(document.getElementById("1u").value);
+	    document.getElementById("o1u").innerHTML = parseFloat(document.getElementById("1u").value);
+	    document.getElementById("u1u").innerHTML = parseFloat(document.getElementById("1u").value);
+    var     j2u=parseFloat(document.getElementById("2u").value);
+	    document.getElementById("o2u").innerHTML = parseFloat(document.getElementById("2u").value);
+	    document.getElementById("u2u").innerHTML = parseFloat(document.getElementById("2u").value);
+    var     j3u=parseFloat(document.getElementById("3u").value);
+	    document.getElementById("o3u").innerHTML = parseFloat(document.getElementById("3u").value);
+	    document.getElementById("u3u").innerHTML = parseFloat(document.getElementById("3u").value);
+    var     j4u=parseFloat(document.getElementById("4u").value);
+	    document.getElementById("o4u").innerHTML = parseFloat(document.getElementById("4u").value);
+	    document.getElementById("u4u").innerHTML = parseFloat(document.getElementById("4u").value);
+    var     j5u=parseFloat(document.getElementById("5u").value);
+	    document.getElementById("o5u").innerHTML = parseFloat(document.getElementById("5u").value);
+	    document.getElementById("u5u").innerHTML = parseFloat(document.getElementById("5u").value);
+    var     j6u=parseFloat(document.getElementById("6u").value);
+	    document.getElementById("o6u").innerHTML = parseFloat(document.getElementById("6u").value);
+	    document.getElementById("u6u").innerHTML = parseFloat(document.getElementById("6u").value);
+
+    var     j1w=j1u/10+j1o/15;
+	    document.getElementById("o1w").innerHTML = j1w;
+    var     j2w=j2u/10+j2o/15;
+	    document.getElementById("o2w").innerHTML = j2w;
+    var     j3w=j3u/10+j3o/15;
+	    document.getElementById("o3w").innerHTML = j3w;
+    var     j4w=j4u/10+j4o/15;
+	    document.getElementById("o4w").innerHTML = j4w;
+    var     j5w=j5u/10+j5o/15;
+	    document.getElementById("o5w").innerHTML = j5w;
+    var     j6w=j6u/10+j6o/15;
+	    document.getElementById("o6w").innerHTML = j6w;
+
+    var     jw_gesamt=j1w+j2w+j3w+j4w+j5w+j6w;
+
+    var     j1a=j1w/jw_gesamt;
+	    document.getElementById("o1a").innerHTML = j1a;
+    var     j2a=j2w/jw_gesamt;
+	    document.getElementById("o2a").innerHTML = j2a;
+    var     j3a=j3w/jw_gesamt;
+	    document.getElementById("o3a").innerHTML = j3a;
+    var     j4a=j4w/jw_gesamt;
+	    document.getElementById("o4a").innerHTML = j4a;
+    var     j5a=j5w/jw_gesamt;
+	    document.getElementById("o5a").innerHTML = j5a;
+    var     j6a=j6w/jw_gesamt;
+	    document.getElementById("o6a").innerHTML = j6a;
+
+	    if (j1a<0.08){
+		j1o=0
+		j1u=0
+		j1w=0
+};
+	    if (j2a<0.08){
+		j2o=0
+		j2u=0
+		j2w=0
+};
+	    if (j3a<0.08){
+		j3o=0
+		j3u=0
+		j3w=0
+};
+	    if (j4a<0.08){
+		j4o=0
+		j4u=0
+		j4w=0
+};
+	    if (j5a<0.08){
+		j5o=0
+		j5u=0
+		j5w=0
+};
+	    if (j6a<0.08){
+		j6o=0
+		j6u=0
+		j6w=0
+};
+
+    var     jwh=j1w+j2w+j3w+j4w+j5w+j6w;
+    var     jws=Math.ceil(jwh/25);
+
+    var     j1s=Math.round(j1w/jws);
+    var     j2s=Math.round(j2w/jws);
+    var     j3s=Math.round(j3w/jws);
+    var     j4s=Math.round(j4w/jws);
+    var     j5s=Math.round(j5w/jws);
+    var     j6s=Math.round(j6w/jws);
+
+
+    var     jloz=j1s+j2s+j3s+j4s+j5s+j6s; 
+
+while (jloz<25){
+	jws=jws-0.1
+
+    var     j1s=Math.round(j1w/jws);
+    var     j2s=Math.round(j2w/jws);
+    var     j3s=Math.round(j3w/jws);
+    var     j4s=Math.round(j4w/jws);
+    var     j5s=Math.round(j5w/jws);
+    var     j6s=Math.round(j6w/jws);
+
+    var     jloz=j1s+j2s+j3s+j4s+j5s+j6s;
+    var     j=j+1
+
+if (j==1000) {
+    var	    jloz=25;
+};	
+};
+
+while (jloz>25){
+	jws=jws+0.1
+
+    var     j1s=Math.round(j1w/jws);
+    var     j2s=Math.round(j2w/jws);
+    var     j3s=Math.round(j3w/jws);
+    var     j4s=Math.round(j4w/jws);
+    var     j5s=Math.round(j5w/jws);
+    var     j6s=Math.round(j6w/jws);
+
+    var     jloz=j1s+j2s+j3s+j4s+j5s+j6s;
+    var     j=j+1
+	
+if (j==1000) {
+    var	    jloz=25;
+};	
+};
+
+if (j==1000) {
+	var	jk=1;
+	var	fehler="Bei der Berechnung gab es einen Fehler. Bitte Seite neuladen und erneut versuchen oder info@fbp.li kontaktieren";
+	window.alert(fehler);
+};		
+
+	    document.getElementById("ws").innerHTML = jws;
+	    document.getElementById("o1s").innerHTML = j1s;
+	    document.getElementById("o2s").innerHTML = j2s;
+	    document.getElementById("o3s").innerHTML = j3s;
+	    document.getElementById("o4s").innerHTML = j4s;
+	    document.getElementById("o5s").innerHTML = j5s;
+	    document.getElementById("o6s").innerHTML = j6s;
+
+// Unterzuteilung
+
+    var     jdo=(j1o+j2o+j3o+j4o+j5o+j6o)/15;
+    var     jdu=(j1u+j2u+j3u+j4u+j5u+j6u)/10;
+
+    var     jd1=1;
+    var     jd2=1;
+    var     jd3=1;
+    var     jd4=1;
+    var     jd5=1;
+    var     jd6=1;
+
+    var     jk=0;
+
+while (jk==0) {
+// Oberland
+    var     j1so=Math.round(j1o/(jdo*jd1));
+    var     j2so=Math.round(j2o/(jdo*jd2));
+    var     j3so=Math.round(j3o/(jdo*jd3));
+    var     j4so=Math.round(j4o/(jdo*jd4));
+    var     j5so=Math.round(j5o/(jdo*jd5));
+    var     j6so=Math.round(j6o/(jdo*jd6));
+
+    var     jso=j1so+j2so+j3so+j4so+j5so+j6so;
+
+	while (jso<15) {
+
+		var	jdo=jdo-0.001
+		    var     j1so=Math.round(j1o/(jdo*jd1));
+		    var     j2so=Math.round(j2o/(jdo*jd2));
+		    var     j3so=Math.round(j3o/(jdo*jd3));
+		    var     j4so=Math.round(j4o/(jdo*jd4));
+		    var     j5so=Math.round(j5o/(jdo*jd5));
+		    var     j6so=Math.round(j6o/(jdo*jd6));
+
+		    var     jso=j1so+j2so+j3so+j4so+j5so+j6so;
+
+	};
+
+	while (jso>15) {
+
+		var	jdo=jdo+0.001
+		    var     j1so=Math.round(j1o/(jdo*jd1));
+		    var     j2so=Math.round(j2o/(jdo*jd2));
+		    var     j3so=Math.round(j3o/(jdo*jd3));
+		    var     j4so=Math.round(j4o/(jdo*jd4));
+		    var     j5so=Math.round(j5o/(jdo*jd5));
+		    var     j6so=Math.round(j6o/(jdo*jd6));
+
+		    var     jso=j1so+j2so+j3so+j4so+j5so+j6so;
+
+	};
+
+// Unterland
+    var     j1su=Math.round(j1u/(jdu*jd1));
+    var     j2su=Math.round(j2u/(jdu*jd2));
+    var     j3su=Math.round(j3u/(jdu*jd3));
+    var     j4su=Math.round(j4u/(jdu*jd4));
+    var     j5su=Math.round(j5u/(jdu*jd5));
+    var     j6su=Math.round(j6u/(jdu*jd6));
+
+    var     jsu=j1su+j2su+j3su+j4su+j5su+j6su;
+
+	while (jsu<10) {
+
+		var	jdu=jdu-0.001
+		    var     j1su=Math.round(j1u/(jdu*jd1));
+		    var     j2su=Math.round(j2u/(jdu*jd2));
+		    var     j3su=Math.round(j3u/(jdu*jd3));
+		    var     j4su=Math.round(j4u/(jdu*jd4));
+		    var     j5su=Math.round(j5u/(jdu*jd5));
+		    var     j6su=Math.round(j6u/(jdu*jd6));
+
+		    var     jsu=j1su+j2su+j3su+j4su+j5su+j6su;
+
+	};
+
+	while (jsu>10) {
+
+		var	jdu=jdu+0.001
+		    var     j1su=Math.round(j1u/(jdu*jd1));
+		    var     j2su=Math.round(j2u/(jdu*jd2));
+		    var     j3su=Math.round(j3u/(jdu*jd3));
+		    var     j4su=Math.round(j4u/(jdu*jd4));
+		    var     j5su=Math.round(j5u/(jdu*jd5));
+		    var     j6su=Math.round(j6u/(jdu*jd6));
+
+		    var     jsu=j1su+j2su+j3su+j4su+j5su+j6su;
+
+	};
+
+// jetzt die Waehlergruppen:
+
+    var     j1us=j1su+j1so;
+
+	while(j1us<j1s){
+		    var     jd1=jd1-0.001;
+		    var     j1so=Math.round(j1o/(jdo*jd1));
+		    var     j1su=Math.round(j1u/(jdu*jd1));
+		    var     j1us=j1su+j1so;
+	};
+
+	while(j1us>j1s){
+		    var     jd1=jd1+0.001;
+		    var     j1so=Math.round(j1o/(jdo*jd1));
+		    var     j1su=Math.round(j1u/(jdu*jd1));
+		    var     j1us=j1su+j1so;
+	};
+
+
+
+    var     j2us=j2su+j2so;
+
+	while(j2us<j2s){
+		    var     jd2=jd2-0.001;
+		    var     j2so=Math.round(j2o/(jdo*jd2));
+		    var     j2su=Math.round(j2u/(jdu*jd2));
+		    var     j2us=j2su+j2so;
+	};
+
+	while(j2us>j2s){
+		    var     jd2=jd2+0.001;
+		    var     j2so=Math.round(j2o/(jdo*jd2));
+		    var     j2su=Math.round(j2u/(jdu*jd2));
+		    var     j2us=j2su+j2so;
+	};
+
+
+    var     j3us=j3su+j3so;
+
+	while(j3us<j3s){
+		    var     jd3=jd3-0.001;
+		    var     j3so=Math.round(j3o/(jdo*jd3));
+		    var     j3su=Math.round(j3u/(jdu*jd3));
+		    var     j3us=j3su+j3so;
+	};
+
+	while(j3us>j3s){
+		    var     jd3=jd3+0.001;
+		    var     j3so=Math.round(j3o/(jdo*jd3));
+		    var     j3su=Math.round(j3u/(jdu*jd3));
+		    var     j3us=j3su+j3so;
+	};
+
+
+    var     j4us=j4su+j4so;
+
+	while(j4us<j4s){
+		    var     jd4=jd4-0.001;
+		    var     j4so=Math.round(j4o/(jdo*jd4));
+		    var     j4su=Math.round(j4u/(jdu*jd4));
+		    var     j4us=j4su+j4so;
+	};
+
+	while(j4us>j4s){
+		    var     jd4=jd4+0.001;
+		    var     j4so=Math.round(j4o/(jdo*jd4));
+		    var     j4su=Math.round(j4u/(jdu*jd4));
+		    var     j4us=j4su+j4so;
+	};
+
+
+    var     j5us=j5su+j5so;
+
+	while(j5us<j5s){
+		    var     jd5=jd5-0.001;
+		    var     j5so=Math.round(j5o/(jdo*jd5));
+		    var     j5su=Math.round(j5u/(jdu*jd5));
+		    var     j5us=j5su+j5so;
+	};
+
+	while(j5us>j5s){
+		    var     jd5=jd5+0.001;
+		    var     j5so=Math.round(j5o/(jdo*jd5));
+		    var     j5su=Math.round(j5u/(jdu*jd5));
+		    var     j5us=j5su+j5so;
+	};
+
+
+    var     j6us=j6su+j6so;
+
+	while(j6us<j6s){
+		    var     jd6=jd6-0.001;
+		    var     j6so=Math.round(j6o/(jdo*jd6));
+		    var     j6su=Math.round(j6u/(jdu*jd6));
+		    var     j6us=j6su+j6so;
+	};
+
+	while(j6us>j6s){
+		    var     jd6=jd6+0.001;
+		    var     j6so=Math.round(j6o/(jdo*jd6));
+		    var     j6su=Math.round(j6u/(jdu*jd6));
+		    var     j6us=j6su+j6so;
+	};
+
+      var     jso=j1so+j2so+j3so+j4so+j5so+j6so;
+      var     jsu=j1su+j2su+j3su+j4su+j5su+j6su;
+
+//Kontrolle ob alles Stimmt: Falls nicht, weiterrechnen
+
+if (jso==15){
+	if (jsu==10){
+		if (j1us==j1s){
+			if (j1us==j1s){
+				if (j1us==j1s){
+					if (j1us==j1s){
+						if (j1us==j1s){
+							if (j1us==j1s){
+								var	jk=1
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+};
+
+    var     i=i+1;
+
+if (i==1000) {
+	var	jk=1;
+	var	fehler="Bei der Berechnung gab es einen Fehler. Bitte Seite neuladen und erneut versuchen oder info@fbp.li kontaktieren";
+	window.alert(fehler);
+};
+
+};
+
+
+    // Ergebnis anzeigen
+     document.getElementById("wdo").innerHTML = jdo;
+     document.getElementById("wdu").innerHTML = jdu;
+
+     document.getElementById("u1d").innerHTML = jd1;
+     document.getElementById("u2d").innerHTML = jd2;
+     document.getElementById("u3d").innerHTML = jd3;
+     document.getElementById("u4d").innerHTML = jd4;
+     document.getElementById("u5d").innerHTML = jd5;
+     document.getElementById("u6d").innerHTML = jd6;
+
+     document.getElementById("u1du").innerHTML = jd1;
+     document.getElementById("u2du").innerHTML = jd2;
+     document.getElementById("u3du").innerHTML = jd3;
+     document.getElementById("u4du").innerHTML = jd4;
+     document.getElementById("u5du").innerHTML = jd5;
+     document.getElementById("u6du").innerHTML = jd6;
+
+     document.getElementById("u1mo").innerHTML = j1so;
+     document.getElementById("u2mo").innerHTML = j2so;
+     document.getElementById("u3mo").innerHTML = j3so;
+     document.getElementById("u4mo").innerHTML = j4so;
+     document.getElementById("u5mo").innerHTML = j5so;
+     document.getElementById("u6mo").innerHTML = j6so;
+
+     document.getElementById("u1mu").innerHTML = j1su;
+     document.getElementById("u2mu").innerHTML = j2su;
+     document.getElementById("u3mu").innerHTML = j3su;
+     document.getElementById("u4mu").innerHTML = j4su;
+     document.getElementById("u5mu").innerHTML = j5su;
+     document.getElementById("u6mu").innerHTML = j6su;
+
+     document.getElementById("e1o").innerHTML = j1so;
+     document.getElementById("e2o").innerHTML = j2so;
+     document.getElementById("e3o").innerHTML = j3so;
+     document.getElementById("e4o").innerHTML = j4so;
+     document.getElementById("e5o").innerHTML = j5so;
+     document.getElementById("e6o").innerHTML = j6so;
+
+     document.getElementById("e1u").innerHTML = j1su;
+     document.getElementById("e2u").innerHTML = j2su;
+     document.getElementById("e3u").innerHTML = j3su;
+     document.getElementById("e4u").innerHTML = j4su;
+     document.getElementById("e5u").innerHTML = j5su;
+     document.getElementById("e6u").innerHTML = j6su;
+
+     document.getElementById("e1").innerHTML = j1s;
+     document.getElementById("e2").innerHTML = j2s;
+     document.getElementById("e3").innerHTML = j3s;
+     document.getElementById("e4").innerHTML = j4s;
+     document.getElementById("e5").innerHTML = j5s;
+     document.getElementById("e6").innerHTML = j6s;
+
+     document.getElementById("fehler").innerHTML = fehler;
+}
+
+    </script>
+
+
+<div class="container">
+  <footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href=mailto:info@fbp.li class="nav-link px-2 text-body-secondary">Kontakt</a></li>
+      <li class="nav-item"><a href="impressum.html" class="nav-link px-2 text-body-secondary">Impressum</a></li>
+      <li class="nav-item"><a href="https://landtag.li" class="nav-link px-2 text-body-secondary">landtag.li</a></li>
+      <li class="nav-item"><a href="https://fbp.li" class="nav-link px-2 text-body-secondary">FBP</a></li>
+      <li class="nav-item"><a href="https://www.instagram.com/junge_fbp/" class="nav-link px-2 text-body-secondary">junge FBP</a></li>
+    </ul>
+    <p class="text-center text-body-secondary">© 2024 Doppelter Pukelsheim: Für ein gerechteres Wahlrecht</p>
+  </footer>
+</div>
+  </body>
+</html>
