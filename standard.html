@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="de-LI">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+  <meta name="author" content="Junge FBP, Initiativkomitee «Fair gezählt. Fair gewählt.»">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#12357f">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_LI">
+  <meta property="og:site_name" content="Fair gezählt. Fair gewählt.">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}/assets/img/vorschau.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" href="/assets/fonts/public-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+
+  <header class="kopf">
+    <div class="rahmen">
+      <a class="marke" href="/">
+        <img src="/assets/img/logo.png" alt="" width="36" height="36">
+        <span>Fair gezählt. Fair gewählt.</span>
+      </a>
+      <nav class="navigation" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="/"{% if page.nav == "start" %} aria-current="page"{% endif %}>Start</a></li>
+          <li><a href="/argumente.html"{% if page.nav == "argumente" %} aria-current="page"{% endif %}>Argumente</a></li>
+          <li><a href="/rechner.html"{% if page.nav == "rechner" %} aria-current="page"{% endif %}>Rechner</a></li>
+          <li><a href="/simulator.html"{% if page.nav == "beispiele" %} aria-current="page"{% endif %}>Frühere Wahlen</a></li>
+          <li><a href="/doks.html"{% if page.nav == "dokumente" %} aria-current="page"{% endif %}>Dokumente</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhalt">
+{{ content }}
+  </main>
+
+  <footer class="fuss">
+    <div class="rahmen">
+      <p>Volksinitiative «Fair gezählt. Fair gewählt.» der Jungen FBP, 2023–2026</p>
+      <ul>
+        <li><a href="mailto:{{ site.kontakt }}">Kontakt</a></li>
+        <li><a href="https://www.instagram.com/junge_fbp/">Junge FBP auf Instagram</a></li>
+        <li><a href="https://github.com/Pukelsheim/pukelsheim.github.io">Quellcode</a></li>
+        <li><a href="/impressum.html">Impressum</a></li>
+        <li><a href="/datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
