@@ -1,0 +1,14 @@
+# GitHub Pages baut die Seite automatisch mit Jekyll.
+# Gemeinsamer Rahmen (Kopf, Navigation, Fuss): _layouts/standard.html
+title: "Fair gezählt. Fair gewählt."
+description: "Volksinitiative für den doppelten Pukelsheim bei den Landtagswahlen in Liechtenstein: Jede Stimme soll gleich viel zählen, egal ob aus dem Oberland oder dem Unterland."
+url: "https://pukelsheim.github.io"
+lang: de-LI
+kontakt: "junge@fbp.li"
+
+exclude:
+  - README.md
+  - LICENSE
+  - tests
+  - werkzeuge
+  - _vorschau

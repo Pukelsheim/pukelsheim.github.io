@@ -1,0 +1,55 @@
+---
+layout: standard
+nav: rechner
+title: "Rechner – Fair gezählt. Fair gewählt."
+description: "Parteistimmen für Oberland und Unterland eingeben und die Sitzverteilung nach dem doppelten Pukelsheim mit jedem Rechenschritt sehen."
+---
+<div class="rahmen">
+  <header class="seitenkopf">
+    <h1>Rechner</h1>
+    <p class="lead">Geben Sie die Parteistimmen jeder Partei im Oberland und im Unterland ein. Der Rechner verteilt die 25 Sitze nach Art. 55 und 56 der Initiative und zeigt jeden Rechenschritt.</p>
+  </header>
+
+  <form id="rechner" novalidate>
+    <div class="formular-zeile">
+      <label for="beispiel">Beispiel laden
+        <select id="beispiel">
+          <option value="">Eigene Zahlen</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="tabelle-wrap">
+      <table class="eingabe">
+        <thead>
+          <tr>
+            <th scope="col"><span class="nur-vorleser">Farbe</span></th>
+            <th scope="col">Partei</th>
+            <th scope="col">Parteistimmen Oberland</th>
+            <th scope="col">Parteistimmen Unterland</th>
+          </tr>
+        </thead>
+        <tbody id="zeilen"></tbody>
+      </table>
+    </div>
+    <p class="klein leise text">Parteistimmen sind alle Kandidaten- und Zusatzstimmen einer Partei im Wahlkreis, so wie sie im amtlichen Wahlergebnis stehen. Leere Felder zählen als 0.</p>
+
+    <div class="aktionen">
+      <button class="knopf" type="submit">Sitze berechnen</button>
+      <button class="knopf knopf--leise" type="button" id="leeren">Eingaben leeren</button>
+    </div>
+  </form>
+
+  <div id="meldungen" role="alert" aria-live="polite"></div>
+  <section id="ergebnis" aria-live="polite" hidden>
+    <h2>Ergebnis</h2>
+    <div id="sitzbild"></div>
+    <div id="rechenweg"></div>
+    <p class="klein leise text">Der Rechner bestimmt die Sitze exakt mit dem Divisorverfahren mit Standardrundung und prüft das Ergebnis am Schluss vollständig nach. Die Berechnung ist mit allen Landtagswahlen seit 1993, dem Rechenbeispiel im Initiativtext und 20 000 Zufallswahlen getestet. Die Adresse dieser Seite enthält Ihre Eingaben, Sie können sie also als Link weitergeben.</p>
+  </section>
+</div>
+
+<script src="/assets/js/pukelsheim.js"></script>
+<script src="/assets/js/wahlen.js"></script>
+<script src="/assets/js/darstellung.js"></script>
+<script src="/assets/js/rechner.js"></script>

@@ -1,0 +1,41 @@
+---
+layout: standard
+nav: beispiele
+title: "Frühere Wahlen – Fair gezählt. Fair gewählt."
+description: "Alle Landtagswahlen seit 1993 im Vergleich: tatsächliche Sitzverteilung und Sitzverteilung mit dem doppelten Pukelsheim, mit vollständigem Rechenweg."
+---
+<div class="rahmen">
+  <header class="seitenkopf">
+    <h1>Frühere Wahlen</h1>
+    <p class="lead">So wären die Landtagswahlen seit 1993 mit dem doppelten Pukelsheim ausgegangen, berechnet aus den amtlichen Parteistimmen.</p>
+  </header>
+
+  <fieldset class="wahl" id="jahre">
+    <legend>Wahl auswählen</legend>
+  </fieldset>
+
+  <section id="vergleich" aria-live="polite">
+    <noscript><p class="meldung meldung--hinweis">Für den Vergleich muss JavaScript aktiviert sein. Die Zahlen finden Sie auch in der Tabelle unter <a href="/argumente.html">Argumente</a>.</p></noscript>
+  </section>
+
+  <section class="abschnitt--flaeche" aria-labelledby="zufall-titel">
+    <div class="rahmen" style="padding:0">
+      <h2 id="zufall-titel">Zufallswahl</h2>
+      <p class="text">Erzeugen Sie eine erfundene Wahl mit Stimmenzahlen in der Grössenordnung einer echten Landtagswahl und sehen Sie, wie der doppelte Pukelsheim die Sitze verteilt. Die Zahlen sind Zufall, keine Prognose.</p>
+      <div class="formular-zeile">
+        <label for="anzahl">Anzahl Parteien
+          <select id="anzahl">
+            <option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option>
+          </select>
+        </label>
+        <button class="knopf" type="button" id="zufall">Zufallswahl erzeugen</button>
+      </div>
+      <div id="zufall-ergebnis" aria-live="polite"></div>
+    </div>
+  </section>
+</div>
+
+<script src="/assets/js/pukelsheim.js"></script>
+<script src="/assets/js/wahlen.js"></script>
+<script src="/assets/js/darstellung.js"></script>
+<script src="/assets/js/beispiele.js"></script>
